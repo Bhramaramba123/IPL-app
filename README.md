@@ -13,5 +13,15 @@
 		git add
 		git commit -m " message"
 		git push
+
+
+## Simple IPL APP
+  		(1) Created CSK & RCB Players list
+  		(2)Added below variables
+  		   -private String teamName ;
+	       -private int totalSix ;
+	       -private double netRunRate ;
+	       -private boolean isKnockOut		
+		
 		
 		
