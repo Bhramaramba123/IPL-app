@@ -2,7 +2,7 @@ package in.java.ipl;
 
 import java.util.List;
 
-public class Teams
+public class Teams implements ITeams
 {
 	private static final Player[] player = null;
 	private String teamName ;
@@ -10,30 +10,39 @@ public class Teams
 	private double netRunRate ;
 	private boolean isKnockOut ;
     private List<Player> players ;
+    private List<Member> members ;
     //private PlayersRCB players; 
 	
-	public Teams(String teamName, int totalSix, double netRunRate, boolean isKnockOut, List<Player> players) 
+	
+
+	public String getTeamName()
 	{
+		return teamName;
+	}
+	public Teams(String teamName, int totalSix, double netRunRate, boolean isKnockOut, List<Player> players,
+			List<Member> members) {
 		super();
 		this.teamName = teamName;
 		this.totalSix = totalSix;
 		this.netRunRate = netRunRate;
 		this.isKnockOut = isKnockOut;
 		this.players = players;
+		this.members = members;
 	}
-
-	public String getTeamName()
-	{
-		return teamName;
+	public List<Member> getMembers() {
+		return members;
+	}
+	public void setMember(List<Member> member) {
+		this.members = member;
+	}
+	public static Player[] getPlayer() {
+		return player;
 	}
 	public void setTeamName(String teamName)
 	{
 		this.teamName = teamName;
 	}
-	public int getTotalSix() 
-	{
-		return totalSix;
-	}
+	
     public void setTotalSix(int totalSix) 
     {
 		this.totalSix = totalSix;
@@ -62,32 +71,55 @@ public class Teams
         System.out.println("PLAYERS:");
         for(Player player: players)
         {
+        	System.out.println(player.getFullName());
         	System.out.println(player.toString());
            
         }
-        for(Player player: players)
+        for(Member member: members)
         {
-        	System.out.println(player.toString());
+        	System.out.println(member.toString());
            
         }
 
 	    System.out.println("RCS's Total number of Six is :" + totalSix);
 		System.out.println("RCS's Net run rate is :" + netRunRate);
 	    System.out.println(" has RCB Knocked out :" + isKnockOut);
+	    
+	    
 	}
 
+	
 	@Override
 	public String toString() {
-		return "Teams [teamName=" + teamName + ", totalSix=" + totalSix + ", netRunRate=" + netRunRate + ", isKnockOut="
-				+ isKnockOut + ", players=" + players + "]";
+		//return getTotalMatchs() + getTotalWins();
+		return "ABC";
 	}
-
 	public List<Player> getPlayers() {
 		return players;
 	}
 
 	public void setPlayers(List<Player> players) {
 		this.players = players;
+	}
+	@Override
+	public String getTotalMatchs() {
+		// TODO Auto-generated method stub
+		return "TotalMatchs";
+	}
+	@Override
+	public String getTotalWins() {
+		// TODO Auto-generated method stub
+		return "22";
+	}
+	@Override
+	public String getTotalSix() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getNetRUnRate() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

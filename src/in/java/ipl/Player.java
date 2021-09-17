@@ -1,32 +1,13 @@
 package in.java.ipl;
 
-public class Player 
+public class Player extends Person implements IPlayer
 {
 	enum role{Batsman,Bowler,AllRounder};
-	private String name;
-	private int Age;
-	private String place;
+	
 	private role primaryRole;
 	private boolean isCaptain;
 	private boolean isWicketKeeper;
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAge() {
-		return Age;
-	}
-	public void setAge(int age) {
-		Age = age;
-	}
-	public String getPlace() {
-		return place;
-	}
-	public void setPlace(String place) {
-		this.place = place;
-	}
+	
 	public role getPrimaryRole() {
 		return primaryRole;
 	}
@@ -46,11 +27,9 @@ public class Player
 	public void setWicketKeeper(boolean isWicketKeeper) {
 		this.isWicketKeeper = isWicketKeeper;
 	}
-	public Player(String name, int age, String place, role primaryRole, boolean isCaptain, boolean isWicketKeeper) {
-		super();
-		this.name = name;
-		Age = age;
-		this.place = place;
+	public Player(String Fname,String Lname,  int age, Person.Gender gender , String place, role primaryRole, boolean isCaptain, boolean isWicketKeeper) {
+		super(Fname, Lname, age, place, gender);
+		
 		this.primaryRole = primaryRole;
 		this.isCaptain = isCaptain;
 		this.isWicketKeeper = isWicketKeeper;
@@ -58,19 +37,44 @@ public class Player
 	@Override
 	public String toString()
 	{
-		String PlayerData = " Name : " + getName()
-	+ " Age : " + getAge()
-	+ " Place : " + getPlace()
-	+ " PrimryRole: " + getPrimaryRole();
+		String PlayerData = super.toString();
+		PlayerData = PlayerData.concat(" PrimryRole: " + getPrimaryRole());
+				
+				
 		if(isCaptain())
 		{
-			PlayerData = PlayerData.concat("and Captain");
+			PlayerData = PlayerData.concat(" and Captain");
 		}
 		if(isWicketKeeper())
 		{
-			PlayerData = PlayerData.concat("and WicketKeeper");
+			PlayerData = PlayerData.concat(" and WicketKeeper");
 		}
 		
 		return PlayerData ;
+	}
+	@Override
+	public String getHighestRUns() {
+		// TODO Auto-generated method stub
+		return "HighestRuns";
+	}
+	@Override
+	public String getBestBowling() {
+		// TODO Auto-generated method stub
+		return "BestBowling";
+	}
+	@Override
+	public String getTotalRuns() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getTotalWickets() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getTotalCatcher() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
