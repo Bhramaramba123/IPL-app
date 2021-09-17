@@ -65,10 +65,32 @@ public class Teams
         	System.out.println(player.toString());
            
         }
+        for(Player player: players)
+        {
+        	System.out.println(player.toString());
+           
+        }
 
 	    System.out.println("RCS's Total number of Six is :" + totalSix);
 		System.out.println("RCS's Net run rate is :" + netRunRate);
 	    System.out.println(" has RCB Knocked out :" + isKnockOut);
 	}
+
+	@Override
+	public String toString() {
+		return "Teams [teamName=" + teamName + ", totalSix=" + totalSix + ", netRunRate=" + netRunRate + ", isKnockOut="
+				+ isKnockOut + ", players=" + players + "]";
+	}
+
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<Player> players) {
+		this.players = players;
+	}
+
+	
+	
 
 }

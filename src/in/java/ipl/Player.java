@@ -2,10 +2,11 @@ package in.java.ipl;
 
 public class Player 
 {
+	enum role{Batsman,Bowler,AllRounder};
 	private String name;
 	private int Age;
 	private String place;
-	private String primaryRole;
+	private role primaryRole;
 	private boolean isCaptain;
 	private boolean isWicketKeeper;
 	public String getName() {
@@ -26,10 +27,10 @@ public class Player
 	public void setPlace(String place) {
 		this.place = place;
 	}
-	public String getPrimaryRole() {
+	public role getPrimaryRole() {
 		return primaryRole;
 	}
-	public void setPrimaryRole(String primaryRole) {
+	public void setPrimaryRole(role primaryRole) {
 		this.primaryRole = primaryRole;
 	}
 	public boolean isCaptain() {
@@ -37,6 +38,22 @@ public class Player
 	}
 	public void setCaptain(boolean isCaptain) {
 		this.isCaptain = isCaptain;
+	}
+	
+	public boolean isWicketKeeper() {
+		return isWicketKeeper;
+	}
+	public void setWicketKeeper(boolean isWicketKeeper) {
+		this.isWicketKeeper = isWicketKeeper;
+	}
+	public Player(String name, int age, String place, role primaryRole, boolean isCaptain, boolean isWicketKeeper) {
+		super();
+		this.name = name;
+		Age = age;
+		this.place = place;
+		this.primaryRole = primaryRole;
+		this.isCaptain = isCaptain;
+		this.isWicketKeeper = isWicketKeeper;
 	}
 	@Override
 	public String toString()
@@ -56,20 +73,4 @@ public class Player
 		
 		return PlayerData ;
 	}
-	public boolean isWicketKeeper() {
-		return isWicketKeeper;
-	}
-	public void setWicketKeeper(boolean isWicketKeeper) {
-		this.isWicketKeeper = isWicketKeeper;
-	}
-	public Player(String name, int age, String place, String primaryRole, boolean isCaptain, boolean isWicketKeeper) {
-		super();
-		this.name = name;
-		Age = age;
-		this.place = place;
-		this.primaryRole = primaryRole;
-		this.isCaptain = isCaptain;
-		this.isWicketKeeper = isWicketKeeper;
-	}
-	
 }
