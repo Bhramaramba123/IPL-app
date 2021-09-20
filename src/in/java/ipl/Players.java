@@ -1,5 +1,6 @@
 package in.java.ipl;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,19 @@ public class Players
 	public String toString() 
 	{
 		String PlayerDetails="";
+		for(int i=0;i<playerList.size();i++) 
+		{
+			try  {
+				System.out.println(playerList.get(i));
+			} catch ( IndexOutOfBoundsException e)
+					 {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
 		for(Player player: playerList)
 		{
 		PlayerDetails = PlayerDetails.concat(player.toString());

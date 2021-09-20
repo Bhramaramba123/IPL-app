@@ -13,21 +13,9 @@ public class Teams implements ITeams
     private List<Member> members ;
     //private PlayersRCB players; 
 	
-	
-
 	public String getTeamName()
 	{
 		return teamName;
-	}
-	public Teams(String teamName, int totalSix, double netRunRate, boolean isKnockOut, List<Player> players,
-			List<Member> members) {
-		super();
-		this.teamName = teamName;
-		this.totalSix = totalSix;
-		this.netRunRate = netRunRate;
-		this.isKnockOut = isKnockOut;
-		this.players = players;
-		this.members = members;
 	}
 	public List<Member> getMembers() {
 		return members;
@@ -47,7 +35,7 @@ public class Teams implements ITeams
     {
 		this.totalSix = totalSix;
 	}
-    public double getNetRunRate()
+    public double getNetRunRate1()
     {
 		return netRunRate;
 	}
@@ -63,8 +51,18 @@ public class Teams implements ITeams
     {
 		this.isKnockOut = isKnockOut;
 	}
+    public Teams(String teamName, int totalSix, double netRunRate, boolean isKnockOut, List<Player> players,
+			List<Member> members) {
+		super();
+		this.teamName = teamName;
+		this.totalSix = totalSix;
+		this.netRunRate = netRunRate;
+		this.isKnockOut = isKnockOut;
+		this.players = players;
+		this.members = members;
+	}
     
-	public void printTeams()
+	public void printTeams() 
 	{
 		// System.out.println(" >>IPL TEAM - ROYAL CHALLENGERS BANGALORE. \n >>CAPTAIN - Virat Koli. \n >>WICKET KEEPER - AB de villers. \n >>BATSMAN - DevDUtt Padikal \n >>BOWLER - Yuzvendra Chahal \n >>Total of 266 sixes \n >> Net run rate is 0.171 \n >> not been knock out yet");
 		System.out.println(teamName);
@@ -75,14 +73,33 @@ public class Teams implements ITeams
         	System.out.println(player.toString());
            
         }
+    	/*<---------------------------------------------------------------------->*/
         for(Member member: members)
         {
         	System.out.println(member.toString());
            
         }
-
-	    System.out.println("RCS's Total number of Six is :" + totalSix);
-		System.out.println("RCS's Net run rate is :" + netRunRate);
+    	/*<---------------------------------------------------------------------->*/
+		try
+		{
+			System.out.println("RCS's Total number of Six is :" + getTotalSix());
+		}
+		
+		catch(ZeroSixException e)
+		{
+		System.out.println(e);	
+		}
+		
+		/*<---------------------------------------------------------------------->*/
+	    try
+	    {
+	    	System.out.println("RCS's Net run rate is :" + getNetRunRate()); 	
+	    }
+	    catch (RunRateException e) 
+	    {
+	    	System.out.println(e);	
+	    }
+		
 	    System.out.println(" has RCB Knocked out :" + isKnockOut);
 	    
 	    
@@ -91,8 +108,7 @@ public class Teams implements ITeams
 	
 	@Override
 	public String toString() {
-		//return getTotalMatchs() + getTotalWins();
-		return "ABC";
+		return "Teams [netRunRate=" + netRunRate + "]";
 	}
 	public List<Player> getPlayers() {
 		return players;
@@ -109,19 +125,35 @@ public class Teams implements ITeams
 	@Override
 	public String getTotalWins() {
 		// TODO Auto-generated method stub
-		return "22";
+		return "TotalWins";
 	}
 	@Override
-	public String getTotalSix() {
+	public String getTotalSix() 
+	{
 		// TODO Auto-generated method stub
-		return null;
+		if(totalSix > 0)
+		{
+		return "TotalSix";
+		}
+		else
+		{
+			throw new ZeroSixException("Total six Cannot be Zero");
+		}
 	}
+	
+	
 	@Override
-	public String getNetRUnRate() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getNetRunRate() {
+		if(netRunRate <=1)
+		{
+		return "netRunRate";
+		}
+		else
+		{
+			throw new RunRateException("NetRunRate cannot be greater than 1");
+		}
 	}
-
+		
 	
 	
 
