@@ -22,6 +22,11 @@ public class Players
 		this.playerList = playerList;
 	}
 
+	public Players()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() 
 	{

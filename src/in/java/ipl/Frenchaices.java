@@ -15,4 +15,15 @@ public enum Frenchaices
 		Shortname = shortname;
 		city = city;
 	}
+	public static Frenchaices  getFranchaicesByString(String Sname)
+	{
+		for (Frenchaices f:Frenchaices.values())
+		{
+			if(f.Shortname.equalsIgnoreCase(Sname))
+			{
+				return f;
+			}
+		}
+		return null;
+	}
 }

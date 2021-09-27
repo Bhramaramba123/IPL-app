@@ -7,33 +7,54 @@ public class Player extends Person implements IPlayer
 	private role primaryRole;
 	private boolean isCaptain;
 	private boolean isWicketKeeper;
+	private Frenchaices franchaices;
 	
-	public role getPrimaryRole() {
+	public Frenchaices getFranchaices() {
+		return franchaices;
+	}
+	public void setFranchaices(Frenchaices franchaices) {
+		this.franchaices = franchaices;
+	}
+	public role getPrimaryRole()
+	{
 		return primaryRole;
 	}
-	public void setPrimaryRole(role primaryRole) {
+	public void setPrimaryRole(role primaryRole)
+	{
 		this.primaryRole = primaryRole;
 	}
-	public boolean isCaptain() {
+	public boolean isCaptain()
+	{
 		return isCaptain;
 	}
-	public void setCaptain(boolean isCaptain) {
+	public void setCaptain(boolean isCaptain) 
+	{
 		this.isCaptain = isCaptain;
 	}
 	
-	public boolean isWicketKeeper() {
+	public boolean isWicketKeeper()
+	{
 		return isWicketKeeper;
 	}
-	public void setWicketKeeper(boolean isWicketKeeper) {
+	public void setWicketKeeper(boolean isWicketKeeper) 
+	{
 		this.isWicketKeeper = isWicketKeeper;
 	}
-	public Player(String Fname,String Lname,  int age, Person.Gender gender , String place, role primaryRole, boolean isCaptain, boolean isWicketKeeper) {
+	public Player(String Fname,String Lname,  int age, Person.Gender gender , String place, role primaryRole, boolean isCaptain, boolean isWicketKeeper , Frenchaices franchaices)
+	{
 		super(Fname, Lname, age, place, gender);
 		
 		this.primaryRole = primaryRole;
 		this.isCaptain = isCaptain;
 		this.isWicketKeeper = isWicketKeeper;
+		this.franchaices = franchaices;
 	}
+	
+	public Player()
+	{
+		super();
+	}
+	
 	@Override
 	public String toString()
 	{
@@ -53,27 +74,32 @@ public class Player extends Person implements IPlayer
 		return PlayerData ;
 	}
 	@Override
-	public String getHighestRUns() {
+	public String getHighestRUns() 
+	{
 		// TODO Auto-generated method stub
 		return "HighestRuns";
 	}
 	@Override
-	public String getBestBowling() {
+	public String getBestBowling()
+	{
 		// TODO Auto-generated method stub
 		return "BestBowling";
 	}
 	@Override
-	public String getTotalRuns() {
+	public String getTotalRuns() 
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 	@Override
-	public String getTotalWickets() {
+	public String getTotalWickets()
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 	@Override
-	public String getTotalCatcher() {
+	public String getTotalCatcher()
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}

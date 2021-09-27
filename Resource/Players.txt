@@ -1,0 +1,8 @@
+Mahendra Singh, Dhoni,35, MALE, "Ranchi",BATSMAN,true, true,CSK
+Ambatti, Rayudu,30, MALE, Guntur, BATSMAN, false, false,CSK
+Ravindra, Jadeja,30, MALE, Navagam, ALLROUNDER,false, false,CSK
+Ravichandran, Ashwin,32, MALE, Chenni, BOWLER,false, false,CSK
+Virat, Koli,30, MALE, Delhi, BATSMAN, true, false,RCB
+Ab, de villers, 30, MALE, Bela-Bela, BATSMAN, false, true,RCB
+DevDUtt, Padikal, 25, MALE, Bangalore, BATSMAN,false, false,RCB
+Yuzvendra, Chahal, 32, MALE, Jind, BOWLER, false, false,RCB
