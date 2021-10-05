@@ -51,6 +51,24 @@ public class Players
 		}
 		return PlayerDetails;
 	}
+
+	public Players getPlayersByTeam(Frenchaices f) {
+		// TODO Auto-generated method stub
+		List<Player> subPlayersList = new ArrayList<Player>();
+		Players subPlayers = new Players();
+		for (Player p: playerList) 
+		{	
+		if(p.getFranchaices() == f)
+		{
+			subPlayersList.add(p);
+		}
+			
+			
+		}
+		subPlayers.setPlayerList(subPlayersList);
+		
+		return subPlayers;
+	}
 	
 	
 	

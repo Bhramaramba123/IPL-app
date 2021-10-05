@@ -13,10 +13,10 @@ public interface DataInitialization
 {
  public Players InitPlayers();
  public Player InitPlayer();
- public Staff InitStaff();
+ public Members InitMembers();
  public Member InitMember();
- public Teams InitTeam();
- 
+ public Team InitTeam();
+ public Teams InitTeams();
 	
 	
 	

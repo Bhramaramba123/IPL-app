@@ -3,26 +3,51 @@ package in.java.ipl;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class IPLApp
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws InterruptedException
 	{
 		System.out.println("IPL 2021");
 		System.out.println("IPL 2021-TEAM MEMBERS DETAILS");
 		System.out.println("-------------------------------------------------------------");
 		// System.out.println(" >>IPL TEAM - ROYAL CHALLENGERS BANGALORE. \n >>CAPTAIN - Virat Koli. \n >>WICKET KEEPER - AB de villers. \n >>BATSMAN - DevDUtt Padikal \n >>BOWLER - Yuzvendra Chahal \n >>Total of 266 sixes \n >> Net run rate is 0.171 \n >> not been knock out yet");
 		//Players details and members details are added for CSK TEAM
+		Thread t = Thread.currentThread();
+		System.out.println(t.getName());
 		
-
-		DataInitializationImpl DI = new DataInitializationImpl() ;
-		//Teams teamsObject = DI.InitTeam();
-		try {
-			DI.readPlayerDataFromFile();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ReadPlayerThread PlayerThread = new ReadPlayerThread();
+		Thread t1 = new Thread(PlayerThread , "Player Thread");
+		//t1.start();
+		//t1.join();
+		//System.out.println(t1.getName());
+		
+		ReadStaffThread StaffThread = new ReadStaffThread();
+		Thread t2 = new Thread(StaffThread , "Staff Thread");
+		//t2.start();
+		//t2.join();
+		//System.out.println(t2.getName());
+		DataInitializationImpl DI = new DataInitializationImpl();
+		//DI.readTeamDataFromFile();
+		DI.InitTeams().toString();
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Second name to delete the player Entry");
+		String secondName = sc.nextLine();
+		DI.deletePlayerFromList(secondName);
+		
+		DI.InitTeams().toString();
+		
+		/*
+		 * DataInitializationImpl DI = new DataInitializationImpl() ; //Teams
+		 * teamsObject = DI.InitTeam(); try { DI.readPlayerDataFromFile(); } catch
+		 * (FileNotFoundException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); } System.out.println(
+		 * "----------------------------------------------------------------------------"
+		 * ); try { DI.readStaffDataFromFile(); } catch (FileNotFoundException e) { //
+		 * TODO Auto-generated catch block e.printStackTrace(); }
+		 */
 		
 		/*
 		 * List<Player> cskPlayerList = new ArrayList<Player>(); cskPlayerList.add(new
@@ -95,6 +120,8 @@ public class IPLApp
 		System.out.println(message);
 		
 	}
+	
+	
 	
 
 }
