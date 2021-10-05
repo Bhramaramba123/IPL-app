@@ -99,18 +99,25 @@ public class DataInitializationImpl implements DataInitialization
 			    {
 					String PlayerRecord = sc.nextLine();
 					PlayerList.add(addPlayerToList(PlayerRecord));
-			      //System.out.println(sc.nextLine());
-			    	
-			    	
+			      //System.out.println(sc.nextLine()); 		
 			    }
 			    //PlayerList.add(player);
 			    players.setPlayerList(PlayerList);
-			    
+		         //System.out.println(PlayerList.size());
+		         //System.out.println(players);
+
+					/*
+					 * for(Player p : PlayerList) { if(p.getSecondName().equals("Dhoni")) { int
+					 * pIndex = p.in PlayerList.remove(p); }
+					 * 
+					 * } System.out.println(PlayerList.size());
+					 */
 		return players; 
 	}
 	
 	public Player addPlayerToList(String PlayerRecord)
 	{
+		 Player player = new Player();
 		String[] IRecord = PlayerRecord.split(",");
     	 player.setFirstName(IRecord[0]);
     	 player.setSecondName(IRecord[1]);
@@ -217,11 +224,7 @@ public class DataInitializationImpl implements DataInitialization
 	
 	
 
-	@Override
-	public Player InitPlayer() {
-		
-		return null;
-	}
+	
 
 	@Override
 	public Members InitMembers() 
@@ -263,17 +266,50 @@ public class DataInitializationImpl implements DataInitialization
 		
 	}
 
-	public void deletePlayerFromList(String secondName) {
+	public void deletePlayerFromList(String secondName)
+	{
 		// TODO Auto-generated method stub
 
-		for(Player p : PlayerList)
-		{
-			if(p.getSecondName().equals(secondName))
-			{
-		       PlayerList.remove(player); 
-		    }
-		}
+		/*
+		 * for(Player p : PlayerList) { if(p.getSecondName().equals(secondName)) {
+		 * PlayerList.remove(p); System.out.println(PlayerList.size()); }
+		 * 
+		 * }
+		 */
+		Player deletePlayer = new Player();
+		int index = 0;
+	    //String id = secondNameInput.getText();
 		
+		for(Player p : players.getPlayerList())
+		{
+	         // boolean idCheck = (p.getSecondName().equals(secondName));
+	     System.out.println(p.getSecondName());
+	
+	      
+
+	          //if (idCheck == true)
+			if(p.getSecondName().trim().equals(secondName.trim()))
+	          {
+				
+	              index = PlayerList.indexOf(p);
+	              break;
+	             
+	              //System.out.println(PlayerList);
+	          }
+	          else
+	          {
+	    	 System.out.println("Player Not Found");
+	          }
+		}
+		System.out.println("Removing Player");
+		 PlayerList.remove(index);
+		 System.out.println(players.toString());
+	}
+
+	@Override
+	public Player InitPlayer() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

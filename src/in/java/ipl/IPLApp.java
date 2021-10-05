@@ -31,13 +31,18 @@ public class IPLApp
 		DataInitializationImpl DI = new DataInitializationImpl();
 		//DI.readTeamDataFromFile();
 		DI.InitTeams().toString();
+		System.out.println("-------------------------------------------------------------");
+		
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Second name to delete the player Entry");
+		System.out.println("Enter Second name to delete the player Entry in PlayerList");
 		String secondName = sc.nextLine();
-		DI.deletePlayerFromList(secondName);
+	    DI.deletePlayerFromList(secondName);
+		 //System.out.println(secondName);
+		 
 		
-		DI.InitTeams().toString();
+		 
+		
 		
 		/*
 		 * DataInitializationImpl DI = new DataInitializationImpl() ; //Teams
