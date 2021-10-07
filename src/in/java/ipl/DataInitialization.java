@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public interface DataInitialization 
 {
- public Players InitPlayers();
+ public PlayerServiceImpl InitPlayers();
  public Player InitPlayer();
  public Members InitMembers();
  public Member InitMember();

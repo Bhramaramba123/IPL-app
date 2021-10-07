@@ -7,7 +7,7 @@ import java.util.List;
 public class Teams 
 {
 	
-    public List<Team> TeamList = new ArrayList<Team>();
+    public static List<Team> TeamList = new ArrayList<Team>();
 
 	public List<Team> getTeamList() {
 		return TeamList;
@@ -31,17 +31,18 @@ public class Teams
 	public String toString() 
 	{
 		String TeamDetails="";
-		
-		
-		
-		
-		
 		for(Team Team: TeamList)
 		{
 		TeamDetails = TeamDetails.concat(Team.toString());
 		TeamDetails = TeamDetails.concat(System.lineSeparator());
 		}
 		return TeamDetails;
+	}
+
+	public static void addTeam(Team team) {
+		// TODO Auto-generated method stub
+		TeamList.add(team);
+		
 	}
 	
 	

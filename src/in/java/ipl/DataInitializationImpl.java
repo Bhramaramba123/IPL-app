@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class DataInitializationImpl implements DataInitialization
 {
      Player player = new Player();
-     Players players = new Players();
+     PlayerServiceImpl players = new PlayerServiceImpl();
      Member member = new Member();
      Members members = new Members();
      Team team = new Team();
@@ -21,7 +21,7 @@ public class DataInitializationImpl implements DataInitialization
 
 
 	@Override
-	public Players InitPlayers() 
+	public PlayerServiceImpl InitPlayers() 
 	{
 		// TODO Auto-generated method stub
 		//List<Player> PlayerList = new ArrayList<Player>();
@@ -57,13 +57,15 @@ public class DataInitializationImpl implements DataInitialization
 			    while (sc.hasNextLine())
 			    {
 					String TeamRecord = sc.nextLine();
-					TeamList.add(addTeamToList(TeamRecord));
+					Team team = addTeamToList(TeamRecord);
+					Teams.addTeam(team);
+					//TeamList.add(addTeamToList(TeamRecord));
 			      //System.out.println(sc.nextLine());
 			    	
 			    	
 			    }
 			    //PlayerList.add(player);
-			    teams.setTeamList(TeamList);
+			    //teams.setTeamList(TeamList);
 		return teams;
 	}
 	
@@ -83,7 +85,7 @@ public class DataInitializationImpl implements DataInitialization
 		return team;
 	}
 
-	public Players readPlayerDataFromFile() 
+	public PlayerServiceImpl readPlayerDataFromFile() 
 	{
 		File file =
 			      new File("Resource/Players.txt");
@@ -94,24 +96,18 @@ public class DataInitializationImpl implements DataInitialization
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				
 			  
 			    while (sc.hasNextLine())
 			    {
 					String PlayerRecord = sc.nextLine();
-					PlayerList.add(addPlayerToList(PlayerRecord));
+					Player player = addPlayerToList(PlayerRecord);
+					players.addPlayer(player);
+					//PlayerList.add(addPlayerToList(PlayerRecord));
 			      //System.out.println(sc.nextLine()); 		
 			    }
 			    //PlayerList.add(player);
-			    players.setPlayerList(PlayerList);
-		         //System.out.println(PlayerList.size());
-		         //System.out.println(players);
-
-					/*
-					 * for(Player p : PlayerList) { if(p.getSecondName().equals("Dhoni")) { int
-					 * pIndex = p.in PlayerList.remove(p); }
-					 * 
-					 * } System.out.println(PlayerList.size());
-					 */
+			    //players.setPlayerList(PlayerList);		
 		return players; 
 	}
 	
@@ -268,30 +264,22 @@ public class DataInitializationImpl implements DataInitialization
 
 	public void deletePlayerFromList(String secondName)
 	{
-		// TODO Auto-generated method stub
-
-		/*
-		 * for(Player p : PlayerList) { if(p.getSecondName().equals(secondName)) {
-		 * PlayerList.remove(p); System.out.println(PlayerList.size()); }
-		 * 
-		 * }
-		 */
 		Player deletePlayer = new Player();
+		
 		int index = 0;
-	    //String id = secondNameInput.getText();
+		System.out.println("" +players.getPlayerList().size());
 		
 		for(Player p : players.getPlayerList())
 		{
 	         // boolean idCheck = (p.getSecondName().equals(secondName));
-	     System.out.println(p.getSecondName());
-	
-	      
-
-	          //if (idCheck == true)
-			if(p.getSecondName().trim().equals(secondName.trim()))
+	     //System.out.println(p.getSecondName());
+         //if (idCheck == true)
+			
+		 if(p.getSecondName().trim().equals(secondName.trim()))
 	          {
-				
-	              index = PlayerList.indexOf(p);
+				  index = players.getPlayerList().indexOf(p);
+	              //PlayerList.remove(index);
+				  System.out.println("index=" +index);
 	              break;
 	             
 	              //System.out.println(PlayerList);
@@ -302,14 +290,30 @@ public class DataInitializationImpl implements DataInitialization
 	          }
 		}
 		System.out.println("Removing Player");
-		 PlayerList.remove(index);
+		players.getPlayerList().remove(index);
 		 System.out.println(players.toString());
 	}
 
 	@Override
-	public Player InitPlayer() {
+	public Player InitPlayer()
+	{
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void updatePlayerInList(String secondName) 
+	{
+		// TODO Auto-generated method stub
+		//Player updatePlayer = new Player();
+		for(Player p : players.getPlayerList())
+		{
+			//p.setSecondName(secondName);
+		 if(p.getSecondName().trim().equals(secondName.trim()))
+	     {
+			 p.setAge(12);
+	     }
+		}
+		
 	}
 
 }

@@ -11,10 +11,10 @@ public class Team implements ITeams
 	private boolean isKnockOut ;
    // private List<Player> players ;
    // private List<Member> members ;
-    private Players players;
+    private List<Player> players;
     private Members members;
     
-    public Team(Frenchaices name, int totalSix, double netRunRate, boolean isKnockOut, Players players, Members members) {
+    public Team(Frenchaices name, int totalSix, double netRunRate, boolean isKnockOut, List<Player> players, Members members) {
 		super();
 		this.teamName = name;
 		this.totalSix = totalSix;
@@ -38,7 +38,7 @@ public class Team implements ITeams
 		this.members = members;
 	}
 
-	public Players getPlayers() {
+	public List<Player> getPlayers() {
 		return players;
 	}
 
@@ -73,7 +73,7 @@ public class Team implements ITeams
 		// TODO Auto-generated constructor stub
 	}
 
-	public Team(String name, int totalSix2, double netRunRate2, boolean isKnockOut2, Players initPlayers,
+	public Team(String name, int totalSix2, double netRunRate2, boolean isKnockOut2, PlayerServiceImpl initPlayers,
 			Members initStaff) {
 		// TODO Auto-generated constructor stub
 	}
@@ -84,7 +84,7 @@ public class Team implements ITeams
 		 System.out.println("--------------------------------------------------------------------------------------------");
 		 System.out.println(teamName);
         System.out.println("PLAYERS:");
-        for(Player player: players.getPlayerList())
+        for(Player player: players)
         {
         	System.out.println(player.getFullName());
         	System.out.println(player.toString());
@@ -173,7 +173,7 @@ public class Team implements ITeams
 		}
 	}
 
-	public void setPlayers(Players players) {
+	public void setPlayers(List<Player> players) {
 		// TODO Auto-generated method stub
 		this.players = players;
 		
